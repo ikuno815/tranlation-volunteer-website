@@ -1,20 +1,28 @@
 import React, { useState } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserAuth } from '../../context/AuthContext';
 
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = async (e) => {
+  const { loginUser } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const userCred = await signInWithEmailAndPassword(auth, email, password);
-    console.log(userCred);
-  }
+    try {
+        await loginUser(email, password);
+        navigate('/home');
+    } catch (err) {
+        console.error(err);
+    }
+  };
+
+
   return (
     <div>
-        <form onSubmit={handleSignIn}>
+        <form onSubmit={handleLogin}>
         <h1>Welcome Back!</h1>
         <label htmlFor="signin-email">Email</label>
         <input 
