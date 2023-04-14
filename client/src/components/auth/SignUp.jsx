@@ -18,7 +18,15 @@ function SignUp() {
         console.error(err);
     }
   };
-
+  /*
+    check database if email already exists (get request)
+    return error
+    if false {
+       const user = await createUserWithEmailAndPassword(email, password)
+       await axios.post('/api/user')(user.email)
+    }
+ }
+*/
   return (
     <div>
         <form onSubmit={handleSignUp}>
