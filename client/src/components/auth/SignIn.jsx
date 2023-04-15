@@ -17,6 +17,7 @@ function SignIn() {
     } catch (err) {
         console.error(err);
     }
+    await loginUser(email, password);
   };
 
 
