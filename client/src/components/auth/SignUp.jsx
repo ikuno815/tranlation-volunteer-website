@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
+import './SignUp.css';
 
 function SignUp() {
   const [email, setEmail] = useState('');
@@ -28,42 +29,57 @@ function SignUp() {
   };
 
   return (
-    <div>
-        <form onSubmit={handleSignUp}>
+    <div className='formContainer'>
+      <form onSubmit={handleSignUp}>
         <h1>Welcome New User!</h1>
-        <label htmlFor="signup-username">Username</label>
-        <input 
-          id="signup-username"
-          type="text"
-          placeholder='someone'
-          value={username}
-          onChange={(e) => {
+        <hr />
+        <div className='entireForm'>
+          <div className='formField'>
+          <label htmlFor="signup-username">Username</label>
+          <input 
+            id="signup-username"
+            type="text"
+            placeholder='someone'
+            value={username}
+            onChange={(e) => {
             setUsername(e.target.value)
           }}
-        />
-            
-        <label htmlFor="signup-email">Email</label>
-        <input 
+          />
+          </div>
+
+          <div className='formField'>   
+          <label htmlFor="signup-email">Email</label>
+          <input 
             id="signup-email"
             type="text"
             placeholder='someone@somewhere.com'
             value={email}
             onChange={(e) => {
-                setEmail(e.target.value)
-            }}/>
-        <label htmlFor="signup-password">Password</label>
-        <input 
+              setEmail(e.target.value)
+          }}
+          />
+          </div>
+
+          <div className='formField'>   
+          <label htmlFor="signup-password">Password</label>
+          <input 
             id="signup-password"
             type="password"
             value={password}
             onChange={(e) => {
-                setPassword(e.target.value)
-            }}/>
-            <button  type='submit'>Sign Up</button>
-        </form>
-        <p>
+              setPassword(e.target.value)
+            }}
+          />
+          </div>       
+          <button  type='submit'>Sign Up</button> 
+        
+          <div className='message-for-signin'>
+          <p>
             Returning User?<Link to='/'>Sign In</Link>
-        </p>
+          </p>
+          </div>
+        </div>
+      </form>
     </div>
   )
 }

@@ -1,0 +1,63 @@
+body {
+    background-color: #AFEEEE;
+    overflow-y: hidden;
+}
+
+.formContainer {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    /* 縦に対して中央に寄せる */
+    align-items: center;
+    /* 横に対して中央に寄せる */
+    justify-content: center;
+}
+
+.formContainer form {
+    background-color: rgba(253, 250, 250, 0.916);
+    width:  80%;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+}
+/* 
+.label {
+    display: block;
+} */
+
+.entireForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 400px;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formField input {
+    margin-top: 10px;
+    width: 80%;
+    height: 20px;
+    padding: 5px 5px;
+    margin-left: 50px;
+}
+
+.entireForm label {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+button {
+    font-size: 15px;
+    width: 40%;
+    margin-top: 30px;
+    padding: 10px;
+    cursor: pointer;
+}
