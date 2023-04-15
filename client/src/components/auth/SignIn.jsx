@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../../context/AuthContext';
+import './SignIn.css';
 
 function SignIn() {
   const [email, setEmail] = useState('');
@@ -22,9 +23,12 @@ function SignIn() {
 
 
   return (
-    <div>
+    <div className='formContainer'>
         <form onSubmit={handleLogin}>
         <h1>Welcome Back!</h1>
+        <hr />
+        <div className='entireForm'>
+        <div className='formField'>
         <label htmlFor="signin-email">Email</label>
         <input 
             id="signin-email"
@@ -34,6 +38,8 @@ function SignIn() {
             onChange={(e) => {
                 setEmail(e.target.value)
             }}/>
+        </div>
+        <div className='formField'>
         <label htmlFor="signin-password">Password</label>
         <input 
             id="signin-password"
@@ -42,11 +48,16 @@ function SignIn() {
             onChange={(e) => {
                 setPassword(e.target.value)
             }}/>
-            <button  type='submit'>Sign In</button>
+        </div>
+        <button type='submit'>Sign In</button>
+        
+        <div className='message-for-signup'>
+            <p>
+                New? <Link to='/signup'>Sign Up from here!</Link>
+            </p>
+        </div>
+        </div>
         </form>
-        <p>
-            New? <Link to='/signup'>Sign Up</Link>
-        </p>
     </div>
   )
 }
