@@ -27,6 +27,7 @@ function App() {
             </ProtectedRoute>
           }></Route>
           <Route path='/mypage' element={<UserProfile/>}></Route>
+          {/* <Route path='/category/restaurants&shops' element={<PostsByCategory/>}></Route> */}
           <Route path='/category' element={<PostsByCategory/>}></Route>
         </Routes>
       </AuthContextProvider>
