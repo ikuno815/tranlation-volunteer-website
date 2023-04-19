@@ -8,7 +8,7 @@ exports.seed = async function(knex) {
   await knex('users').del()
   await knex('users').insert([
     {id: 1, username: 'Viola', profile_bio: 'Hi, I am a restaurant owner in Japan.', email: 'viola@viola.com'},
-    {id: 2, username: 'Satoko', profile_bio: 'こんにちは。日本語の教師をしています。'},
+    {id: 2, username: 'Satoko', profile_bio: 'こんにちは。日本語の教師をしています。', email: 'satoko@satoko.com'},
     {id: 3, username: 'Jake', profile_bio: 'I need some help with English.'},
     {id: 4, username: 'Monica', profile_bio: 'Hola, me llamo Monica. Soy de Madrid.'},
     {id: 5, username: 'Leona', profile_bio: 'I speak Japanese, Spanish and English.'},

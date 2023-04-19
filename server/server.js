@@ -1,5 +1,6 @@
 const express = require('express');
 const usersController = require('./users/users.controller');
+const translationRequestController = require('./translation-request/translation-request.controller');
 
 
 function setupServer() {
@@ -8,6 +9,7 @@ function setupServer() {
     app.use(express.json());
 
     app.use('/api/user', usersController);
+    app.use('/api/translationrequest', translationRequestController);
 
     app.get('/hello', (req, res) => {
         res.send('world🌎')

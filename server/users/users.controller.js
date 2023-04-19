@@ -4,8 +4,8 @@ const usersModel = require('./users.model');
 
 router.get('/:email', async(req, res) => {
     const reqEmail = req.params.email;
-    const email = await usersModel.getUserInfobyEmail(reqEmail);
-    res.status(200).send(email);
+    const userInfo = await usersModel.getUserInfobyEmail(reqEmail);
+    res.status(200).send(userInfo);
 })
 
 router.post('/',  async(req, res) => {
