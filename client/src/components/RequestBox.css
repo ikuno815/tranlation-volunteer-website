@@ -1,0 +1,25 @@
+.request-home {
+    padding: 10px;
+    flex-direction: column;
+    text-align:right;
+}
+
+/* .categories-menu {
+    width: 50%;
+    float: left;
+} */
+
+.request-box {
+    padding: 20px;
+    border-radius: 10px;
+    border: solid;
+    display:inline-block;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px 200px 10px 100px;
+    text-align: center;
+}
+
+.request-content {
+    word-wrap: break-word;
+}

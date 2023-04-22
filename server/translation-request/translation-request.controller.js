@@ -20,4 +20,20 @@ router.post('/', async(req, res) => {
     res.status(200).send(req.body);
 })
 
+router.get('/', async(req, res) => {
+    const allReqData = await transRequestModel.getAllTransReqData();
+    console.log('💚', allReqData)
+    res.status(200).send(allReqData);
+})
+
+// router.get('/:cId/:langOrgId/:langTransId', async(req, res) => {
+//     const cId = Number(req.params.cId);
+//     const langOrgId = Number(req.params.langOrgId);
+//     const langTransId = Number(req.params.langTransId);
+
+//     const DisplayedPayload = await transRequestModel
+//                 .getDisplayedPayload(cId, langOrgId, langTransId);
+//     res.status(200).send(DisplayedPayload);
+// })
+
 module.exports = router;

@@ -15,11 +15,15 @@ export default function Navbar() {
           console.error(err);
       }
     }
+
   return (
     <div>
-        <p>Hi! {user && user.email}</p>
-        <button onClick={() => navigate('/mypage')}>My Page</button>
-        <button onClick={handleLogout}>Logout</button>
+      <div className='sidebar'>
+        <h2 className='title'>Translation Volunteer</h2>
+        <p className='welcome-message'>Hi! {user && user.email}</p>
+        <button className='mypage-button' onClick={() => navigate('/mypage')}>My Page</button>
+        <button className='logout-button' onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   )
 }

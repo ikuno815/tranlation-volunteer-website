@@ -1,0 +1,7 @@
+.request-form-container {
+    border-radius: 10px;
+    display: inline-block;
+    flex-direction: column;
+    width: 100%;
+    margin: 100px 150px 10px 10px;
+}

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { UserAuth } from '../context/AuthContext';
+import './RequestForm.css';
 
-function RequestForm() {
+function RequestForm(props) {
+  const { setDisplayedRequests, displayedRequests } = props;
+
   const { user } = UserAuth();
   const [userId, setUserId] = useState();
   const [categoryId, setCategoryId] = useState();
@@ -10,10 +13,8 @@ function RequestForm() {
   const [tranLangId, setTranLangId] = useState();
   const [requestContent, setRequestContent] = useState('');
 
-
   const handleCategories = (e) => {
     e.preventDefault();
-    console.log('😄', typeof Number((e.target.value)));//1
     const categoryId = Number(e.target.value);
     setCategoryId(categoryId);
   }
@@ -42,18 +43,41 @@ function RequestForm() {
         .get(`/api/user/${user.email}`);
     const userId = userIdData.data[0].id;
     setUserId(userId);
-
-    await axios.post('/api/translationrequest', {
+  
+    
+    const payload = {
       user_id: userId,
       categories_id: categoryId,
       original_language_id: orgLangId,
       translated_language_id: tranLangId,
       request: requestContent
-    })
+    }
+
+    const username = userIdData.data[0].username;
+    
+    const categoryNameData = await axios.get(`api/categories/${categoryId}`);
+    const categoryName = categoryNameData.data[0].name;
+    
+    const orgLangNameData = await axios.get(`api/languages/${orgLangId}`);
+    const orgLangName = orgLangNameData.data[0].name;
+
+    const tranLangNameData = await axios.get(`api/languages/${tranLangId}`);
+    const tranLangName = tranLangNameData.data[0].name;
+    
+    const displayedPayload = {
+      username: username,
+      name: categoryName,
+      request: requestContent,
+      original_language: orgLangName,
+      translated_language: tranLangName,
+    }
+
+    setDisplayedRequests([displayedPayload, ...displayedRequests]); 
+    await axios.post('/api/translation-request', payload)
   }
 
   return (
-    <div>
+    <div className='request-form-container'>
     <label>Request Form</label>
     <textarea
     name='request-form'

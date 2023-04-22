@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 100%;
+    padding: 20px 0 20px 20px ;
+    text-align: center;
+    position: fixed;
+    background-color:rgb(157, 224, 226);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+}
+
+.mypage-button, .logout-button {
+    width: 150px;
+    border-radius: 100vh;
+    background-color:rgb(251, 249, 249);
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+.title {
+    width: 500px;
+    margin: 0 200px 0 auto;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.welcome-message {
+    font-size: 15px;
+}
