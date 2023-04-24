@@ -1,9 +1,37 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './RequestBox.css';
+import { useNavigate } from 'react-router-dom';
+import IndividualPage from '../pages/IndividualPage';
+// import axios from 'axios';
+
 
 function RequestBox(props) {
-    const { displayedRequests, filterPostsbyCategory, resetFilter } = props;
+    const { displayedRequests, filterPostsbyCategory, resetFilter} = props;
+    // const [targetRequestId, setTargetRequestId] = useState();
     console.log('😁', displayedRequests);
+    const navigate = useNavigate();
+
+    // function handleTargetRequestId(e) {
+    //   e.preventDefault();
+    //   setTargetRequestId(e.target.value);
+    //   handleCurrentView(e);
+    //   console.log(e.target.value);
+    // }
+    
+    // async function handleRequestId(requestId) {
+    //   setTargetRequestId(requestId);
+    //   navigate('/request-page');
+    // }
+
+    // function handleReload(requestId) {
+    //   window.location.reload().then(
+    //   navigate(`/request-page/${requestId}`))
+    // }
+
+    // async function handleEachRequestClicked(requestId) {
+    //   const fetchedEachRequest = await axios.get(`/api/translation-request/${requestId}`);
+    //   setSelectedRequest(fetchedEachRequest.data);
+    // }
 
   return (
     <div className='request-home'>
@@ -25,6 +53,7 @@ function RequestBox(props) {
                             <p className='translatedLangName'>translated language: {request.translated_language}</p>
                             <hr />
                             <p className='request-content'>{request.request}</p>
+                            <button onClick={() => {navigate(`/request-page/${request.id}`)}}>see more</button>
                         </div>
                       </div>
                 )

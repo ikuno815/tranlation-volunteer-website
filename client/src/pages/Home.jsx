@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar';
 import RequestForm from '../components/RequestForm';
 import RequestBox from '../components/RequestBox';
+import { useNavigate } from 'react-router-dom';
 import './Home.css'
 import axios from 'axios';
+import IndividualPage from './IndividualPage';
 
 function Home() {
   const [allRequests, setAllRequests] = useState([]);
   const [displayedRequests, setDisplayedRequests] = useState(allRequests);
+  const [currentView, setCurrentView] = useState('Home');
+  const [targetRequestId, setTargetRequestId] = useState();
+
+  const navigate = useNavigate();
+
     //=> displayedPosts = default is allPosts
     //mapのときもdisplayedPostsにする
     //resetFilterHandlerも作る=> setdisplayedPosts(allPosts)
@@ -23,7 +30,9 @@ function Home() {
         console.log('🙃',fetchedRequests.data)
     }
 
-    function filterPostsbyCategory(category) {
+    async function filterPostsbyCategory(category) {
+      const fetchedRequests = await axios.get('/api/translation-request');
+      setAllRequests(fetchedRequests.data);
       const filteredPosts = allRequests.filter((post) => post.name === category);
       setDisplayedRequests(filteredPosts)
     }
@@ -32,26 +41,58 @@ function Home() {
       setDisplayedRequests(allRequests)
     }
 
+    const handleCurrentView = (event) =>  {
+      event.preventDefault();
+      setCurrentView('EachRequest');
+    }
+
+    function handleRequestId(requestId) {
+      setTargetRequestId(requestId);
+      console.log(requestId);
+    }
+
+    // async function handleEachRequestClicked(requestId) {
+    //   const fetchedEachRequest = await axios.get(`/api/translation-request/${requestId}`);
+    //   setSelectedRequest(fetchedEachRequest.data);
+    // }
+
   return (
     <div className='container'>
       <div>
       <Navbar className='navbar'/>
       </div>
-      <div>
-      <RequestForm 
-        className='request-form'
-        setDisplayedRequests={setDisplayedRequests}
+      
+        <div>
+        <RequestForm
+          className='request-form'
+          setDisplayedRequests={setDisplayedRequests}
+          displayedRequests={displayedRequests}/>
+        <RequestBox 
+          className='request-box'
+          displayedRequests={displayedRequests}
+          resetFilter={resetFilter}
+          filterPostsbyCategory={filterPostsbyCategory}
+          handleCurrentView={handleCurrentView}/>
+        </div>
+      
+        {/* <IndividualPage
+        handleRequestId={handleRequestId}
+        targetRequestId={targetRequestId}
         displayedRequests={displayedRequests}
-      />
-      </div>
-      <div className='home-container'>
-      <RequestBox 
-        className='request-box'
-        displayedRequests={displayedRequests}
-        resetFilter={resetFilter}
-        filterPostsbyCategory={filterPostsbyCategory}
-      />
-      </div>
+        />
+      ) */}
+        {/* <div>
+        <RequestForm
+          className='request-form'
+          setDisplayedRequests={setDisplayedRequests}
+          displayedRequests={displayedRequests}/>
+        <RequestBox 
+          className='request-box'
+          displayedRequests={displayedRequests}
+          resetFilter={resetFilter}
+          filterPostsbyCategory={filterPostsbyCategory}
+          handleCurrentView={handleCurrentView}/>
+        </div> */}
     </div>
   )
 }

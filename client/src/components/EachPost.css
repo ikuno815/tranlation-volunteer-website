@@ -1,0 +1,36 @@
+.request-container {
+    /* display: inline-block; */
+    margin-top: 100px;
+    margin-left: 300px;
+    margin-right: 300px;
+    display: flex;
+}
+
+.upper-part {
+    /* margin-top: 100px;
+    margin-left: 50px; */
+    padding: 20px;
+    border-radius: 15px;
+    border: solid;
+    width: 40%;
+    display: inline-block;
+    text-align: left;
+}
+
+/* .basic-info {
+    display: inline-block;
+    text-align: left;
+} */
+
+.content {
+    border-radius: 15px;
+    border: solid;
+    padding: 20px;
+    margin-left: 10px;
+    width: 70%;
+    text-align: left; 
+    background:#d4f6f6;
+    padding:20px;
+    font-size:16px;
+    font-weight:bold;
+}

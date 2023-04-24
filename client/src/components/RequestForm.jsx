@@ -73,7 +73,8 @@ function RequestForm(props) {
     }
 
     setDisplayedRequests([displayedPayload, ...displayedRequests]); 
-    await axios.post('/api/translation-request', payload)
+    await axios.post('/api/translation-request', payload);
+    window.location.reload();
   }
 
   return (
@@ -123,6 +124,7 @@ function RequestForm(props) {
 
 
     <button onClick={handleUserId}>Request!</button>
+    <p>Your request was successfully submitted!</p>
     </div>
   )
 }

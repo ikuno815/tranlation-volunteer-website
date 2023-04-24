@@ -44,5 +44,26 @@ module.exports = {
             .leftJoin('languages AS lo', 'lo.id', 'tr.original_language_id')
             .leftJoin('languages AS lt', 'lt.id', 'tr.translated_language_id')
             .orderBy('tr.id', 'desc');
+   },
+   getRequestInfobyId(requestId) {
+       return knex
+            .select(
+                'tr.id',
+                'tr.user_id',
+                'tr.categories_id',
+                'tr.original_language_id',
+                'tr.translated_language_id',
+                'tr.request',
+                'u.username',
+                'c.name',
+                'lo.name AS original_language',
+                'lt.name AS translated_language'
+            )
+            .from('translation_request AS tr')
+            .leftJoin('users AS u', 'u.id', 'tr.user_id')
+            .leftJoin('categories AS c', 'c.id', 'tr.categories_id')
+            .leftJoin('languages AS lo', 'lo.id', 'tr.original_language_id')
+            .leftJoin('languages AS lt', 'lt.id', 'tr.translated_language_id')
+            .where('tr.id', requestId);
    }
 }

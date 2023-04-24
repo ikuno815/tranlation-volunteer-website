@@ -26,14 +26,11 @@ router.get('/', async(req, res) => {
     res.status(200).send(allReqData);
 })
 
-// router.get('/:cId/:langOrgId/:langTransId', async(req, res) => {
-//     const cId = Number(req.params.cId);
-//     const langOrgId = Number(req.params.langOrgId);
-//     const langTransId = Number(req.params.langTransId);
-
-//     const DisplayedPayload = await transRequestModel
-//                 .getDisplayedPayload(cId, langOrgId, langTransId);
-//     res.status(200).send(DisplayedPayload);
-// })
+router.get('/:requestId', async(req, res) => {
+    const requestId = Number(req.params.requestId);
+    const eachReqData = await transRequestModel.getRequestInfobyId(requestId);
+    console.log('🐠', eachReqData)
+    res.status(200).send(eachReqData);
+})
 
 module.exports = router;

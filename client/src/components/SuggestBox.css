@@ -1,0 +1,56 @@
+.suggest-box-container {
+    margin-top: 50px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+textarea {
+    margin-top: 10px;
+    border: solid;
+    border-radius: 15px;
+    width: 100%;
+    padding: 20px;
+    resize: none;
+}
+
+.suggestion-button {
+    border: solid;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.button-area {
+    display: block;
+    text-align: right;
+}
+
+.suggestion-box {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.upper-part {
+    padding: 30px;
+    border-radius: 15px;
+    border: solid;
+    width: 40%;
+    display: inline-block;
+    text-align: left;
+}
+
+.content {
+    border-radius: 15px;
+    border: solid;
+    padding: 30px;
+    margin-left: 10px;
+    width: 70%;
+    text-align: left; 
+    background:#d4f6f6;
+    padding:20px;
+    font-size:16px;
+    font-weight:bold;
+}
