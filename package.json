@@ -10,7 +10,8 @@
     "migrate": "knex migrate:latest",
     "make:seed": "knex seed:make",
     "seed": "knex seed:run",
-    "build": "npm install"
+    "build": "npm install && cd client && npm install && npm run build",
+    "postbuild": "npm run migrate-latest"
   },
   "keywords": [],
   "author": "",
