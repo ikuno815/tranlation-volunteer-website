@@ -2,6 +2,28 @@
     border-radius: 10px;
     display: inline-block;
     flex-direction: column;
+    width: 60%;
+    /* margin: 100px 150px 10px 10px; */
+    margin-top: 100px;
+    /* margin-left: 300px;
+    margin-right: 300px; */
+}
+
+select, option {
+    font-size: 18px;
+}
+
+.request-button {
+    border: solid;
+    border-radius: 15px;
     width: 100%;
-    margin: 100px 150px 10px 10px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.button-area {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
 }

@@ -5,7 +5,6 @@ import RequestBox from '../components/RequestBox';
 import { useNavigate } from 'react-router-dom';
 import './Home.css'
 import axios from 'axios';
-import IndividualPage from './IndividualPage';
 
 function Home() {
   const [allRequests, setAllRequests] = useState([]);
@@ -34,7 +33,8 @@ function Home() {
       const fetchedRequests = await axios.get('/api/translation-request');
       setAllRequests(fetchedRequests.data);
       const filteredPosts = allRequests.filter((post) => post.name === category);
-      setDisplayedRequests(filteredPosts)
+      setDisplayedRequests(filteredPosts);
+
     }
 
     function resetFilter() {
@@ -50,11 +50,6 @@ function Home() {
       setTargetRequestId(requestId);
       console.log(requestId);
     }
-
-    // async function handleEachRequestClicked(requestId) {
-    //   const fetchedEachRequest = await axios.get(`/api/translation-request/${requestId}`);
-    //   setSelectedRequest(fetchedEachRequest.data);
-    // }
 
   return (
     <div className='container'>
@@ -74,25 +69,6 @@ function Home() {
           filterPostsbyCategory={filterPostsbyCategory}
           handleCurrentView={handleCurrentView}/>
         </div>
-      
-        {/* <IndividualPage
-        handleRequestId={handleRequestId}
-        targetRequestId={targetRequestId}
-        displayedRequests={displayedRequests}
-        />
-      ) */}
-        {/* <div>
-        <RequestForm
-          className='request-form'
-          setDisplayedRequests={setDisplayedRequests}
-          displayedRequests={displayedRequests}/>
-        <RequestBox 
-          className='request-box'
-          displayedRequests={displayedRequests}
-          resetFilter={resetFilter}
-          filterPostsbyCategory={filterPostsbyCategory}
-          handleCurrentView={handleCurrentView}/>
-        </div> */}
     </div>
   )
 }

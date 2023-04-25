@@ -79,7 +79,6 @@ function RequestForm(props) {
 
   return (
     <div className='request-form-container'>
-    <label>Request Form</label>
     <textarea
     name='request-form'
     type='text'
@@ -90,6 +89,7 @@ function RequestForm(props) {
     >
     </textarea>
     <select
+    className='categories'
     name='categories'
     onChange={handleCategories}
     >
@@ -101,6 +101,7 @@ function RequestForm(props) {
     </select>
   
     <select
+    id='original-language'
     name='original-language'
     onChange={handleOrgLangId}
     >
@@ -112,6 +113,7 @@ function RequestForm(props) {
     </select>
 
     <select
+    id='translated-language'
     name='translated-language'
     onChange={handleTranLangId}
     >
@@ -122,9 +124,12 @@ function RequestForm(props) {
     <option value='4'>Chinese</option>
     </select>
 
-
-    <button onClick={handleUserId}>Request!</button>
-    <p>Your request was successfully submitted!</p>
+    <div className='button-area'>
+    <button 
+      onClick={handleUserId}
+      className='request-button'
+    >Request</button>
+    </div>
     </div>
   )
 }
