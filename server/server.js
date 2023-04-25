@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 const usersController = require('./users/users.controller');
 const translationRequestController = require('./translation-request/translation-request.controller');
 const categoriesController = require('./categories/categories.controllers');
@@ -12,7 +11,6 @@ function setupServer() {
 
     app.use(express.static(path.resolve(__dirname, '../client/build')));
     app.use(express.json());
-    app.use(cors());
 
     app.use('/api/user', usersController);
     app.use('/api/translation-request', translationRequestController);
