@@ -9,3 +9,4 @@ const knexConfig = require("../knexfile")[process.env.NODE_ENV];
 console.log(process.env.NODE_ENV);
 
 module.exports = knex(knexConfig);
+
