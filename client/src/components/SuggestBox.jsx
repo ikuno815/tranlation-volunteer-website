@@ -28,7 +28,7 @@ function SuggestBox(props) {
         isSubmitted(postedSuggestion);
 
         await axios.post('/api/translation-suggest', postedSuggestion);
-        window.location.reload();
+        // window.location.reload();
     }
 
     const handleSuggest = (e) => {

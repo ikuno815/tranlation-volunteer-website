@@ -5,22 +5,7 @@ function EachPost(props) {
   const { requestId, individualRequest } = props;
   console.log('🌸', requestId, individualRequest); 
 
-  // useEffect(() => {
-  //   getIndividualRequest(requestId);
-  // }, [])
-
-  // async function getIndividualRequest(requestId) {
-  //     const fetchedIndividualRequest = await axios.get(`/api/translation-request/${requestId}`);
-  //     setIndividualRequest(fetchedIndividualRequest.data);
-  //     console.log('🙃',fetchedIndividualRequest.data)
-  //}
-
   return (
-    // <div className='each-post-title'>
-    
-        
-           
-          
             individualRequest?.map((request, index) => {
               return (
                 <div className='request-container'  key={index}>

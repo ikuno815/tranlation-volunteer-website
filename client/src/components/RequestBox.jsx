@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 function RequestBox(props) {
     const { displayedRequests, filterPostsbyCategory, resetFilter} = props;
-    // const [targetRequestId, setTargetRequestId] = useState();
     console.log('😁', displayedRequests);
     const navigate = useNavigate();
 

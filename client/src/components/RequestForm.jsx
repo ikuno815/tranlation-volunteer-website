@@ -74,7 +74,7 @@ function RequestForm(props) {
 
     setDisplayedRequests([displayedPayload, ...displayedRequests]); 
     await axios.post('/api/translation-request', payload);
-    window.location.reload();
+    // window.location.reload();
   }
 
   return (
