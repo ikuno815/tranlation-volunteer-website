@@ -22,6 +22,14 @@ function setupServer() {
         res.send('world🌎')
     });
 
+    app.get('/*', function(req, res) {
+        res.sendFile(path.join(__dirname, '../client/build'), function(err) {
+          if (err) {
+            res.status(500).send(err)
+          }
+        })
+      })
+
     return app;
 }
 
