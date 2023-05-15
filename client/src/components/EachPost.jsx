@@ -3,7 +3,6 @@ import './EachPost.css';
 
 function EachPost(props) {
   const { requestId, individualRequest } = props;
-  console.log('🌸', requestId, individualRequest); 
 
   return (
             individualRequest?.map((request, index) => {
