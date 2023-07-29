@@ -27,8 +27,9 @@ function SuggestBox(props) {
         console.log('💓', postedSuggestion);
         isSubmitted(postedSuggestion);
 
+        setAllSuggestions([postedSuggestion, ...allSuggestions])
         await axios.post('/api/translation-suggest', postedSuggestion);
-        // window.location.reload();
+        setSuggestContent('');
     }
 
     const handleSuggest = (e) => {
