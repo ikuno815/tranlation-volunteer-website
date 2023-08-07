@@ -16,6 +16,7 @@ function SuggestBox(props) {
         e.preventDefault();
         const userIdData = await axios.get(`/api/user/${user.email}`);
         const userId = userIdData.data[0].id;
+        const userName = userIdData.data[0].username;
         setUserId(userId);
 
         const postedSuggestion = {
@@ -27,8 +28,14 @@ function SuggestBox(props) {
         console.log('💓', postedSuggestion);
         isSubmitted(postedSuggestion);
 
+        const displayedSuggestion = {
+            username: userName,
+            suggestion: suggestContent
+        }
+
+        setAllSuggestions([displayedSuggestion, ...allSuggestions])
         await axios.post('/api/translation-suggest', postedSuggestion);
-        // window.location.reload();
+        setSuggestContent('');
     }
 
     const handleSuggest = (e) => {
